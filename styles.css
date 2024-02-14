@@ -34,7 +34,7 @@ table tr td:last-child {
     border-right: 0;
 }
 
-.endGame{
+.endgame{
     display:none ;
     height: 200px;
     width: 400px;
