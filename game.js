@@ -28,22 +28,43 @@ function startGame()
         cells[i].style.removeProperty('background-color')
         cells[i].addEventListener("click", turnClick,false)
     }
-    // console.log(originalBoard)
+    
 }
 
 
-function turnClick(e){
-    // console.log(e.target.id)
-    turn(e.target.id,humanPlayer)
+function turnClick(square){
+    
+    turn(square.target.id,humanPlayer)
 }
 
 function turn(squareId,player){
-    // boxId = document.querySelector("#id");
+    
     originalBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
+    let gameWon = checkWin(originalBoard,player);
+    if (gameWon) gameOver(gameWon)
 
 }
-// let array = []
 
-// array.push(cells)
-// console.log(array)
+function checkWin(board, player) {
+	let plays = board.reduce((a, e, i) => 
+		(e === player) ? a.concat(i) : a, []);
+	let gameWon = null;
+	for (let [index, win] of winCombos.entries()) {
+		if (win.every(elem => plays.indexOf(elem) > -1)) {
+			gameWon = {index: index, player: player};
+			break;
+		}
+	}
+	return gameWon;
+}
+
+function gameOver(gameWon) {
+	for (let index of winCombos[gameWon.index]) {
+		document.getElementById(index).style.backgroundColor =
+			gameWon.player == humanPlayer ? "blue" : "red";
+	}
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].removeEventListener('click', turnClick, false);
+	}
+}
