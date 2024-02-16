@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Sixtyfour&display=swap');
+
+body{
+    background-color: #F6FDC3;
+}
+*{
+    font-family: 'Honk';
+}
 td{
     border: 1px solid black ;
     height: 100px;
@@ -15,10 +23,12 @@ table{
     top: 20%;
     left: 35%;
     height: 500px;
-    width: 500px;
+    width: 500px; 
 }
 
 table :first-child td{
+    
+    border: 5px solid #211951;
     border-top: 0;
 }
 
@@ -35,11 +45,52 @@ table tr td:last-child {
 }
 
 .endgame{
+    align-items: center;
     display:none ;
     height: 200px;
-    width: 400px;
+    width: 500px;
     position: absolute;
-    top: 38%;
-    left: 38%;
-    background-color: rgba(128, 164, 107, 0.712);
+    top: 40%;
+    left: 35%;
+    font-size: 45px;
+    color: #F0F3FF;
+    background-color: #836FFF;
+    border: 5px solid #211951;
+    border-radius: 10px;
+}
+
+.styling-endgame-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    
+}
+
+.styling-endgame-div > button{
+    margin-top: 3%;
+    font-size: 36px;
+    background-color: #15F5BA;
+    color: #211951;
+    border-radius: 50px;
+    border: 5px solid #211951;
+    padding: 2%;
+
+}
+
+
+.heroheading{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.heroheading > h1{
+    margin-left: 2%;
+    font-size: 60px;
+    color: #7E30E1;
+    font-family: 'Honk';
 }

@@ -1,6 +1,6 @@
 var origBoard;
-const huPlayer = 'O';
-const aiPlayer = 'X';
+const huPlayer = '🟢';
+const aiPlayer = '❌';
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -55,12 +55,12 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
 	for (let index of winCombos[gameWon.index]) {
 		document.getElementById(index).style.backgroundColor =
-			gameWon.player == huPlayer ? "blue" : "red";
+			gameWon.player == huPlayer ? "#211951" : "#FF8080";
 	}
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false);
 	}
-	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose!");
 }
 
 function declareWinner(who) {
@@ -79,7 +79,7 @@ function bestSpot() {
 function checkTie() {
 	if (emptySquares().length == 0) {
 		for (var i = 0; i < cells.length; i++) {
-			cells[i].style.backgroundColor = "green";
+			cells[i].style.backgroundColor = "#15F5BA";
 			cells[i].removeEventListener('click', turnClick, false);
 		}
 		declareWinner("Tie Game!")
